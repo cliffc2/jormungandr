@@ -17,16 +17,31 @@ we recommend to use the most recent stable version of the rust compiler.
 6. install **jormungandr**: `cargo install --path jormungandr`
 7. install **jcli**: `cargo install --path jcli`
 
+This will install 2 tools:
+
+* `jormungandr`: the node part of the blockchain;
+* `jcli`: a command line helper tool to help you use and setup the node;
+
 Note:
 
 * on windows, you'll need to add the `/userProfile/.cargo/bin` into the Path;
 * on linux and OSX: add `${HOME}/.cargo/bin` to your `${PATH}`
 * on linux with systemd: to enable logging to journald replace step 5. with `cargo install --path . --features systemd`
 
-This will install 2 tools:
+Troubleshooting 
 
-* `jormungandr`: the node part of the blockchain;
-* `jcli`: a command line helper tool to help you use and setup the node;
+If you get an error: linker `cc` not found - gcc is not loaded.  Perform the steps below to install the GCC Compiler Ubuntu 18.04:;
+Start by updating the packages list:
+`sudo apt update`
+Install the build-essential package by typing:
+`sudo apt install build-essential`
+The command will install a bunch of new packages including gcc, g++ and make.
+https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/
+
+If you get an error: failed to run custom build command for `openssl-sys v0.9.47`; type
+`sudo apt install libssl-dev`
+https://github.com/rust-lang/cargo
+
 
 ## How to install from binaries
 
